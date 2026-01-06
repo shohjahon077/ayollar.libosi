@@ -2,396 +2,65 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayollar-libosi. Do'koni</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>NAFIS|Eksklyuziv To'plam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,500&family=Montserrat:wght@100;200;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👕</text></svg>">
 </head>
 <body>
-    <!-- Loading -->
-    <div class="loading" id="loading">
-        <div class="loader"></div>
+
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">NAFIS</div>
+            <div style="color:white; letter-spacing: 5px; font-size: 0.6rem; margin-top:10px;">PREMIUM TO'PLAM</div>
+        </div>
     </div>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <i class="fas fa-tshirt"></i>
-                    <span>Ayollar-libosi</span>
-                </div>
-                
-                <div class="nav-links" id="navLinks">
-                    <a href="#home" class="nav-link active">Bosh</a>
-                    <a href="#products" class="nav-link">Mahsulotlar</a>
-                    <a href="#categories" class="nav-link">Kategoriya</a>
-                    <a href="#sale" class="nav-link">Aksiya</a>
-                    <a href="#about" class="nav-link">Biz haqimizda</a>
-                    <a href="#contact" class="nav-link">Bog'lanish</a>
-                </div>
-                
-                <div class="nav-icons">
-                    <button class="icon-btn" id="searchBtn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    
-                    <button class="icon-btn cart-btn" id="cartBtn">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-badge" id="cartBadge">0</span>
-                    </button>
-                    
-                    <button class="icon-btn menu-btn" id="menuBtn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </nav>
-        </div>
+    <header>
+        <div class="brand">NAFIS<span>.</span></div>
+        <button class="cart-btn" onclick="openModal('cart-modal')">SAVAT (<span id="count">0</span>)</button>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Zamonaviy <span>Kiyimlar</span></h1>
-                <p class="hero-text">Eng yaxshi narxlar, sifatli materiallar, o'z uslubingizni yarating</p>
-                <div class="hero-btns">
-                    <a href="#products" class="btn primary-btn">Xarid qilish</a>
-                    <a href="#sale" class="btn secondary-btn">Aksiyalar</a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="hero">
+        <div class="hero-sub">YANGI MAVSUM 2026</div>
+        <h1 class="hero-title">Nafislik Va Go'zallik</h1>
+    </div>
 
-    <!-- Products -->
-    <section class="products" id="products">
-        <div class="container">
-            <h2 class="section-title">Mahsulotlar</h2>
-            <p class="section-subtitle">Eng yaxshi mahsulotlar</p>
-            
-            <div class="filter-btns">
-                <button class="filter-btn active" data-filter="all">Barchasi</button>
-                <button class="filter-btn" data-filter="men">Erkaklar</button>
-                <button class="filter-btn" data-filter="women">Ayollar</button>
-                <button class="filter-btn" data-filter="kids">Bolalar</button>
-            </div>
-            
-            <div class="products-grid" id="productsGrid">
-                <!-- Products will load here -->
-            </div>
-        </div>
-    </section>
+    <h2 class="section-name">Eksklyuziv Tanlov</h2>
 
+    <main class="product-grid" id="grid"></main>
 
-    <!-- About -->
-    <section class="about" id="about">
-        <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">Biz haqimizda</h2>
-                <p class="about-text">Biz 10 yildan beri sifatli kiyimlar bilan xizmat qilamiz. Mijozlar mamnuniyati bizning asosiy maqsadimiz.</p>
-                
-                <div class="stats">
-                    <div class="stat">
-                        <h3>10,000+</h3>
-                        <p>Mijozlar</p>
-                    </div>
-                    <div class="stat">
-                        <h3>500+</h3>
-                        <p>Mahsulotlar</p>
-                    </div>
-                    <div class="stat">
-                        <h3>24/7</h3>
-                        <p>Qo'llab-quvvatlash</p>
-                    </div>
-                </div>
+    <div class="overlay" id="cart-modal">
+        <div class="modal">
+            <button class="close-x" onclick="closeAll()">&times;</button>
+            <h2 style="font-family:'Playfair Display'; font-size: 2rem; margin-bottom: 30px;">Tanlanganlar</h2>
+            <div id="cart-list"></div>
+            <div style="margin-top: 30px; font-size: 1.5rem; display: flex; justify-content: space-between; border-top: 1px solid #333; padding-top: 20px;">
+                <span>Jami:</span> <b id="total" style="color:var(--gold-solid)">0</b>
             </div>
+            <button class="add-btn" style="margin-top: 30px; padding: 18px; background: var(--gold-solid); color:black;" onclick="openModal('order-modal')">BUYURTMA BERISH</button>
         </div>
-    </section>
+    </div>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Bog'lanish</h2>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h3>Telefon</h3>
-                            <p>+998 91 703 13 34</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h3>Manzil</h3>
-                            <p>Toshkent shahri</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h3>Ish vaqti</h3>
-                            <p>9:00 - 20:00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="overlay" id="order-modal">
+        <div class="modal">
+            <button class="close-x" onclick="closeAll()">&times;</button>
+            <h2 style="font-family:'Playfair Display'; font-size: 2rem; margin-bottom: 30px;">Ma'lumotlar</h2>
+            <form id="order-form">
+                <input type="text" id="user-name" class="lux-input" placeholder="To'liq ismingiz" required>
+                <input type="tel" id="user-phone" class="lux-input" placeholder="Telefon raqamingiz" required>
+                <input type="text" id="user-addr" class="lux-input" placeholder="Yashash manzilingiz" required>
+                <button type="submit" class="add-btn" style="padding: 18px; background: white; color: black;">TELEGRAMGA YUBORISH</button>
+            </form>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Ayollar-libosi</h3>
-                    <p>Zamonaviy kiyimlar do'koni</p>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Havolalar</h3>
-                    <a href="#home">Bosh sahifa</a>
-                    <a href="#products">Mahsulotlar</a>
-                    <a href="#about">Biz haqimizda</a>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Ijtimoiy tarmoqlar</h3>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-telegram"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 Ayollar-libosi. Barcha huquqlar himoyalangan.</p>
-                <a href="https://instagram.com/shohcore12" target="_blank">Yaratuvchi-Shohjahon Mahkamov</a>
-            </div>
-        </div>
+    <footer>
+        <div class="footer-logo">NAFIS.</div>
+        <p style="margin-bottom: 20px; font-weight: 200; font-size: 0.8rem;">Dizayner: Shohjahon Mahkamov</p>
+        <a href="https://instagram.com/shohcore12" class="insta">@SHOHCORE12</a>
     </footer>
 
-    <!-- Cart Sidebar -->
-    <div class="cart-sidebar" id="cartSidebar">
-        <div class="cart-header">
-            <h3>Savat</h3>
-            <button class="close-btn" id="closeCart">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        
-        <div class="cart-body" id="cartBody">
-            <!-- Cart items will appear here -->
-        </div>
-        
-        <div class="cart-footer" id="cartFooter">
-            <div class="cart-total">
-                <span>Jami:</span>
-                <span id="cartTotal">0 so'm</span>
-            </div>
-            <button class="btn primary-btn" id="checkoutBtn">Buyurtma berish</button>
-        </div>
-    </div>
-
-    <!-- Order Form Modal -->
-    <div class="modal" id="orderModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Buyurtma berish</h3>
-                <button class="close-btn" id="closeOrderModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <form id="orderForm">
-                <div class="form-group">
-                    <label for="customerName">Ism *</label>
-                    <input type="text" id="customerName" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="customerPhone">Telefon *</label>
-                    <input type="tel" id="customerPhone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="customerAddress">Manzil *</label>
-                    <textarea id="customerAddress" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="customerNote">Izoh (ixtiyoriy)</label>
-                    <textarea id="customerNote"></textarea>
-                </div>
-                
-                <div class="order-summary">
-                    <h4>Buyurtma xulosasi</h4>
-                    <div id="orderSummary">
-                        <!-- Order summary will appear here -->
-                    </div>
-                </div>
-                
-                <button type="submit" class="btn primary-btn">Tasdiqlash</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Success Modal -->
-    <div class="modal success-modal" id="successModal">
-        <div class="modal-content">
-            <div class="success-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            
-            <h3>Buyurtma qabul qilindi!</h3>
-            
-            <div class="order-info">
-                <p><strong>Buyurtma raqami:</strong> <span id="successOrderNumber">ORD-123456</span></p>
-                <p><strong>Jami summa:</strong> <span id="successOrderTotal">0 so'm</span></p>
-                <p><strong>Yetkazib berish:</strong> 2-3 ish kuni</p>
-            </div>
-            
-            <div class="delivery-status">
-                <i class="fas fa-truck"></i>
-                <p>Buyurtma yetkazilmoqda...</p>
-            </div>
-            
-            <div class="modal-btns">
-                <button class="btn primary-btn" id="continueBtn">Davom ettirish</button>
-            </div>
-            
-            <div class="success-note">
-                <p><i class="fas fa-info-circle"></i> Operator tez orada siz bilan bog'lanadi</p>
-                <p><i class="fab fa-telegram"></i> Buyurtma Telegramga yuborildi</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cancel Order Modal -->
-    <div class="modal" id="cancelModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Buyurtmani bekor qilish</h3>
-                <button class="close-btn" id="closeCancelModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <form id="cancelForm">
-                <div class="form-group">
-                    <label for="cancelOrderNumber">Buyurtma raqami *</label>
-                    <input type="text" id="cancelOrderNumber" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cancelPhone">Telefon raqamingiz *</label>
-                    <input type="tel" id="cancelPhone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="cancelReason">Sabab *</label>
-                    <select id="cancelReason" required>
-                        <option value="">Tanlang</option>
-                        <option value="change_mind">Fikrimni o'zgartirdim</option>
-                        <option value="delivery_time">Yetkazib berish vaqti</option>
-                        <option value="other">Boshqa sabab</option>
-                    </select>
-                </div>
-                
-                <button type="submit" class="btn danger-btn">Bekor qilish</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Overlay -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Admin Button -->
-    <button class="admin-btn" id="adminBtn">
-        <i class="fas fa-cog"></i>
-    </button>
-
-    <!-- Telegram Settings -->
-    <div class="modal" id="telegramModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fab fa-telegram"></i> Telegram Sozlamalari</h3>
-                <button class="close-btn" id="closeTelegramModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="modal-body">
-                <div class="form-group">
-                    <label>Bot Token</label>
-                    <input type="text" id="telegramToken" placeholder="BotFather dan olgan tokeningiz">
-                </div>
-                
-                <div class="form-group">
-                    <label>Chat ID</label>
-                    <input type="text" id="telegramChatId" placeholder="Sizning Chat ID">
-                </div>
-                
-                <div class="form-btns">
-                    <button class="btn primary-btn" id="saveTelegramBtn">Saqlash</button>
-                    <button class="btn secondary-btn" id="testTelegramBtn">Test xabar</button>
-                </div>
-                
-                <div class="telegram-guide">
-                    <h4>Qanday olish kerak?</h4>
-                    <p>1. @BotFather ga boring</p>
-                    <p>2. /newbot buyrug'ini yuboring</p>
-                    <p>3. Bot nomini bering</p>
-                    <p>4. Token oling va bu yerga qo'ying</p>
-                    <p>5. @getidsbot dan Chat ID oling</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Admin Panel -->
-    <div class="modal admin-modal" id="adminModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-user-shield"></i> Admin Panel</h3>
-                <button class="close-btn" id="closeAdminModal">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            
-            <div class="modal-body">
-                <div class="admin-tabs">
-                    <button class="tab-btn active" data-tab="orders">Buyurtmalar</button>
-                    <button class="tab-btn" data-tab="settings">Sozlamalar</button>
-                </div>
-                
-                <div class="tab-content" id="ordersTab">
-                    <div class="orders-list" id="ordersList">
-                        <!-- Orders will appear here -->
-                    </div>
-                </div>
-                
-                <div class="tab-content" id="settingsTab" style="display: none;">
-                    <button class="btn secondary-btn" id="clearOrdersBtn">Buyurtmalarni tozalash</button>
-                    <button class="btn secondary-btn" id="clearCartBtn">Savatni tozalash</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Scroll to Top -->
-    <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-chevron-up"></i>
-    </button>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+     <script src="script.js"></script>
 </body>
 </html>
