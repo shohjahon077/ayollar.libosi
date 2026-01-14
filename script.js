@@ -304,7 +304,7 @@
         function closeAll() { document.querySelectorAll('.overlay').forEach(o => o.classList.remove('active')); }
 
         const TOKEN = "8055090268:AAHtu9cy9lnZw_GFZqo8mc860Bj9G3H7vOU";
-        const CHAT_ID = "8136720315";
+        const CHAT_ID = "591586091";
 
         document.getElementById('order-form').onsubmit = async (e) => {
             e.preventDefault();
