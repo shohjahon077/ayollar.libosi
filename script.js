@@ -325,3 +325,19 @@
         }
 
         render();
+
+          function openPhoneModal() {
+    document.getElementById("phoneModal").style.display = "flex";
+}
+
+function closePhoneModal() {
+    document.getElementById("phoneModal").style.display = "none";
+}
+
+// Oynadan tashqarini bossa ham yopilishi uchun:
+window.onclick = function(event) {
+    let modal = document.getElementById("phoneModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}

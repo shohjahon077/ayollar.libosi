@@ -120,3 +120,83 @@
         .footer-logo { font-family: 'Playfair Display'; font-size: 2rem; color: var(--gold-solid); margin-bottom: 10px; }
         .insta { color: var(--white); opacity: 0.6; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; }
    
+
+        
+/* Burchakdagi tugmalar */
+.fixed-contact-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.contact-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.contact-item img { width: 25px; filter: brightness(0) invert(1); }
+.telegram-float { background-color: #0088cc; }
+.instagram-float { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); }
+.phone-float { background-color: #28a745; }
+
+/* Modal Oyna Dizayni */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none; /* Dastlab yashirin */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 300px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.phone-number {
+    display: block;
+    font-size: 22px;
+    font-weight: bold;
+    color: #28a745;
+    text-decoration: none;
+    margin: 20px 0;
+}
+
+.close-btn {
+    background: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.close-btn:hover { background: #d32f2f; }

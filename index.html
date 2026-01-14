@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <img src="5411235674716834692.jpg670" alt="">
     <div id="loader">
         <div class="loader-content">
             <div class="loader-logo">NAFIS</div>
@@ -57,10 +56,32 @@
 
     <footer>
         <div class="footer-logo">NAFIS.</div>
-        <p style="margin-bottom: 20px; font-weight: 200; font-size: 0.8rem;">Dizayner: Shohjahon Mahkamov</p>
+        <p style="margin-bottom: 20px; font-weight: 200; font-size: 0.8rem;">Yaratuvchi: Shohjahon Mahkamov</p>
         <a href="https://instagram.com/shohcore12" class="insta">@SHOHCORE12</a>
     </footer>
 
+<div class="fixed-contact-wrapper">
+    <a href="https://t.me/keiym_kechak" target="_blank" class="contact-item telegram-float">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="TG">
+    </a>
+
+    <a href="https://www.instagram.com/ayollar.libosi?igsh=M2hhcGh3MzhrbXJ6" target="_blank" class="contact-item instagram-float">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="IG">
+    </a>
+
+    <div class="contact-item phone-float" onclick="openPhoneModal()">
+        <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Tel">
+    </div>
+</div>
+
+<div id="phoneModal" class="modal-overlay">
+    <div class="modal-content">
+        <h3>Biz bilan bog'lanish</h3>
+        <p>Telefon raqamimiz:</p>
+        <a href="tel:+998232401" class="phone-number">+998 23 24-01</a>
+        <button class="close-btn" onclick="closePhoneModal()">Yopish</button>
+    </div>
+</div>
      <script src="script.js"></script>
 </body>
 </html>
