@@ -24,7 +24,7 @@
         }
         .loader-content { text-align: center; }
         .loader-logo {
-            font-family: 'Playfair Display', serif; font-size: 3rem; 
+            font-family: 'Playfair Display', serif; font-size: 1rem; 
             background: var(--gold); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             letter-spacing: 15px; text-transform: uppercase;
             animation: zoomIn 2s ease-out forwards;
